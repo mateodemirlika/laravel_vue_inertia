@@ -17,10 +17,10 @@ return new class extends Migration
             $table->unsignedTinyInteger('baths');
             $table->unsignedSmallInteger('area');
 
-            $table->tinyText('city');
-            $table->tinyText('code');
-            $table->tinyText('street');
-            $table->tinyText('street_nr');
+            $table->tinyText('city')->nullable();
+            $table->tinyText('code')->nullable();
+            $table->tinyText('street')->nullable();
+            $table->tinyText('street_nr')->nullable();
 
             $table->unsignedInteger('price');
 
