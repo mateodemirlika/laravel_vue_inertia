@@ -12,17 +12,26 @@ class ListingController extends Controller
 {
     public function __construct()
     {
-
-        $this->authorizeResource(Listing::class, 'listing');
+        $this->middleware('auth');
     }
     /**
      * Display a listing of the resource.
      */
-    public function index()
+    public function index(Request $request)
     {
         //
+        $filters = $request->only([
+            'priceFrom', 'priceTo', 'beds', 'baths', 'areaFrom', 'areaTo'
+        ]);
+        $query = Listing::orderByDesc('created_at');
+
         return inertia('Listing/Index', [
-            'listings' => Listing::all()
+            'filters' => $filters,
+            'listings' => Listing::mostRecent()
+                ->filter($filters)
+                ->paginate(10)
+                ->withQueryString()
+
         ]);
     }
 
@@ -67,8 +76,11 @@ class ListingController extends Controller
      */
     public function show(string $id)
     {
+
         //
         $listing =  Listing::find($id);
+        $this->authorize('view', $listing);
+
         // if (Auth::user()->cannot('view', $listing)) {
         //     abort(403);
         // }
@@ -84,6 +96,9 @@ class ListingController extends Controller
     public function edit($id)
     {
         //
+        $listing = Listing::find($id);
+        $this->authorize('update', $listing);
+
         return inertia('Listing/Edit', [
             'listing' => Listing::find($id)
         ]);
@@ -97,6 +112,8 @@ class ListingController extends Controller
         //
         $listing = Listing::find($id);
         //
+        $this->authorize('update', $listing);
+
         $validatedData =   $request->validate([
             'beds' => 'required|integer|min:0|max:20',
             'baths' => 'required|integer|min:0|max:20',
@@ -121,6 +138,8 @@ class ListingController extends Controller
     {
         //
         $listing = Listing::find($id);
+        $this->authorize('delete', $listing);
+
         $listing->delete();
         return redirect()->route('listing.index')->with('success', 'Listing was Deleted!');
     }

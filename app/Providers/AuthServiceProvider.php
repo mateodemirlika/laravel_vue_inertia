@@ -17,6 +17,7 @@ class AuthServiceProvider extends ServiceProvider
      */
     protected $policies = [
         //
+        Listing::class => ListingPolicy::class
     ];
 
     /**
@@ -24,8 +25,8 @@ class AuthServiceProvider extends ServiceProvider
      */
     public function boot(): void
     {
-        //
+
         $this->registerPolicies();
-        Gate::policy(Listing::class, ListingPolicy::class);
+        // Gate::policy(Listing::class, ListingPolicy::class);
     }
 }
