@@ -5,18 +5,25 @@
         <div class="container mx-auto">
             <nav class="p-4 flex items-center justify-between">
                 <div class="text-lg font-medium">
-                    <Link :href="route('listing.index')">Listings</Link>
+                    <Link :href="route('realtor.listing.index')">Listings</Link>
                 </div>
                 <div
                     class="text-xl text-indigo-600 dark:text-indigo-300 font-bold text-center"
                 >
-                    <Link :href="route('listing.index')">LaraZillow</Link>
+                    <Link :href="route('listing.index')"
+                        >Laravel Inertia VueJs</Link
+                    >
                 </div>
                 <div v-if="$page.props.user" class="flex items-center gap-4">
-                    <div class="text-sm text-gray-500">
-                        {{ $page.props.user.name }}
-                    </div>
-                    <Link :href="route('listing.create')" class="btn-primary"
+                    <Link
+                        class="text-sm text-gray-500"
+                        :href="route('realtor.listing.index')"
+                        >{{ $page.props.user.name }}</Link
+                    >
+
+                    <Link
+                        :href="route('realtor.listing.create')"
+                        class="btn-primary"
                         >+ New Listing</Link
                     >
                     <div>
