@@ -42,17 +42,17 @@ class ListingController extends Controller
      */
     public function show(string $id)
     {
-
         //
         $listing =  Listing::find($id);
-        $this->authorize('view', $listing);
 
-        // if (Auth::user()->cannot('view', $listing)) {
-        //     abort(403);
-        // }
-        $this->authorize('view', $listing);
+        // $this->authorize('view', $listing);
+
+        $listing->load(['images']);
+        $offer =  !Auth::user() ? null : $listing->offers()->byMe()->first();
+
         return inertia('Listing/Show', [
-            'listing' => $listing
+            'listing' => $listing,
+            'offerMade' => $offer
         ]);
     }
 
