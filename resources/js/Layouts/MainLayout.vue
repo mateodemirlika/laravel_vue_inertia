@@ -15,6 +15,16 @@
                     >
                 </div>
                 <div v-if="$page.props.user" class="flex items-center gap-4">
+                    <div class="text-gray-500 relative pr-2 py-2 text-lg">
+                        🔔
+                        <div
+                            v-if="notificationCount"
+                            class="absolute right-0 top-0 w-5 h-5 bg-red-700 dark:bg-red-400 text-white font-medium border border-white dark:border-gray-900 rounded-full text-xs text-center"
+                        >
+                            {{ notificationCount }}
+                        </div>
+                    </div>
+
                     <Link
                         class="text-sm text-gray-500"
                         :href="route('realtor.listing.index')"
@@ -57,11 +67,14 @@
 // Imports
 // import { ref } from "vue";
 import { computed } from "vue";
-import { Link } from "@inertiajs/inertia-vue3";
-import { usePage } from "@inertiajs/vue3";
+import { Link, usePage } from "@inertiajs/inertia-vue3";
 // page.props.value.flash.success
 // Refs
 // Functions
+const page = usePage();
+const notificationCount = computed(() =>
+    Math.min(page.props.value.user.notificationsCount, 9)
+);
 </script>
 <style scoped>
 .success {
