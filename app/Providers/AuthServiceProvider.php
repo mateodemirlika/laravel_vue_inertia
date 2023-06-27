@@ -7,6 +7,8 @@ use Illuminate\Foundation\Support\Providers\AuthServiceProvider as ServiceProvid
 use Illuminate\Support\Facades\Gate;
 use App\Models\Listing;
 use App\Policies\ListingPolicy;
+use App\Policies\NotificationPolicy;
+use Notification;
 
 class AuthServiceProvider extends ServiceProvider
 {
@@ -17,7 +19,10 @@ class AuthServiceProvider extends ServiceProvider
      */
     protected $policies = [
         //
-        Listing::class => ListingPolicy::class
+        Listing::class => ListingPolicy::class,
+        // Notification::class => NotificationPolicy::class
+        'Illuminate\Notifications\DatabaseNotification' => 'App\Policies\NotificationPolicy'
+
     ];
 
     /**
