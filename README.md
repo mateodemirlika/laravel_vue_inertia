@@ -18,9 +18,10 @@
 -   Validation
 -   Authentication
 
-###  Run Laravel
-    > composer install || composer update
-    > php artisan serve
+### Run Laravel
+
+    composer install || composer update
+    php artisan serve
 
 ## Vue
 
@@ -29,13 +30,15 @@
 -   Directives
 -   Layouts
 
-###  Run Vue
-    > npm install || npm update
-    > npm run dev
+### Run Vue
+
+    npm install || npm update
+    npm run dev
 
 ## Docker
 
--   Run Docker
-    > docker compose up
+### Run Docker
+
+    docker compose up
 
 ## Tailwinds
