@@ -17,7 +17,8 @@
 -   Routing
 -   Validation
 -   Authentication
---  Run Laravel
+
+###  Run Laravel
     > composer install || composer update
     > php artisan serve
 
@@ -28,7 +29,7 @@
 -   Directives
 -   Layouts
 
---  Run Vue
+###  Run Vue
     > npm install || npm update
     > npm run dev
 
