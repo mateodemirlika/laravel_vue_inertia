@@ -1,22 +1,33 @@
-# Laravel Vue Inertia Docker
+# Laravel Vue Inertia Tailwinds Docker
 
 ## Laravel
 
- - Models
- - Controllers
- - Providers
- - Events
- - Mail
- - Verification
+-   Models
+-   Controllers
+-   Providers
+-   Events
+-   Notification
+-   Mail
+-   Verification
+-   Databse (Eloquent Relationship)
+-   Storage
+-   Factories
+-   Seeders
+-   Middleware
+-   Routing
+-   Validation
+-   Authentication
 
 ## Vue
 
--  Components
--  Composables
--  Layouts
+-   Components
+-   Composables
+-   Directives
+-   Layouts
 
 ## Docker
 
--  docker compose up
+-   Run Docker
+    > docker compose up
 
-
+## Tailwinds
