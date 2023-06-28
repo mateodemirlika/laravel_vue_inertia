@@ -17,7 +17,7 @@
 -   Routing
 -   Validation
 -   Authentication
-
+-   Policies
 ### Run Laravel
 
     composer install
