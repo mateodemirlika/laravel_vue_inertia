@@ -17,6 +17,9 @@
 -   Routing
 -   Validation
 -   Authentication
+--  Run Laravel
+    > composer install || composer update
+    > php artisan serve
 
 ## Vue
 
@@ -24,6 +27,10 @@
 -   Composables
 -   Directives
 -   Layouts
+
+--  Run Vue
+    > npm install || npm update
+    > npm run dev
 
 ## Docker
 
