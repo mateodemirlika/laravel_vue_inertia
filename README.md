@@ -20,7 +20,7 @@
 
 ### Run Laravel
 
-    composer install || composer update
+    composer install
     php artisan serve
 
 ## Vue
@@ -32,7 +32,7 @@
 
 ### Run Vue
 
-    npm install || npm update
+    npm install
     npm run dev
 
 ## Docker
